@@ -14,7 +14,7 @@ then 	echo Errore: $1 non file oppure non leggibile
 fi
 #se arriviamo qui vuol dire che $1 e' un file esistente E leggibile!
 #chiediamo all'utente se vuole visualizzare il contenuto del file: N.B. forziamo l'output sul terminale corrente per non avere problemi se si usasse la ridirezione dello standard output
-echo -n "vuoi visualizzare il file $1 (si/no)? " > /dev/tty
+echo "vuoi visualizzare il file $1 (si/no)?" > /dev/tty
 #leggiamo la risposta dell'utente
 read var1
 #se l'utente ha risposto 'si' allora procediamo con visualizzazione delle info e del file
