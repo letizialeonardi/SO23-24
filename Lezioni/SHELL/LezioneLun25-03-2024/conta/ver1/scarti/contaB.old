@@ -1,0 +1,13 @@
+#contaB
+#file comandi ricorsivo che scrive il nome dei file trovati sul file 
+#il cui nome e' passato come secondo argomento
+
+cd $1
+for i in *
+do
+	if test -f $i
+	then 	echo `pwd`/$i >> $2
+	else 	contaB $i $2
+		echo in `pwd`/$i conta = `wc -l < $2` 
+	fi
+done

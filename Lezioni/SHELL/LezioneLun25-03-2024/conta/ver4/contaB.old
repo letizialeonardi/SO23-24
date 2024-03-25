@@ -1,0 +1,16 @@
+#contaB
+
+cd $1
+for i in *
+do
+	if test -f $i
+	then 	#echo $i
+		conta=`expr $conta + 1`
+	else 	contaB $i
+		read conta < /tmp/contatmp
+		echo in `pwd`/$i conta = $conta
+	fi
+done
+echo $conta > /tmp/contatmp
+
+
