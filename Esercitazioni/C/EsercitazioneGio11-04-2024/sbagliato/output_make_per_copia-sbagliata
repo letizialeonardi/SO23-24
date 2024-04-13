@@ -1,0 +1,95 @@
+NOTA BENE: In questo file sono riportati tutte le segnalazioni ottenute dal comando make andando a commentare via vie le direttive di include
+
+- OUTPUT PER COMMENTO DELLA PRIMA DIRETTIVA
+soELab@lica04:~/file/primaEsercitazione-C/sbagliato$ make
+gcc   -Wall  copia-sbagliata.c -o copia-sbagliata
+copia-sbagliata.c: In function 'main':
+copia-sbagliata.c:11:18: error: 'BUFSIZ' undeclared (first use in this function)
+      char buffer[BUFSIZ];    /* usato per i caratteri, letti dal file sorgente e scritti sul file destinazione */
+                  ^~~~~~
+copia-sbagliata.c:11:18: note: each undeclared identifier is reported only once for each function it appears in
+copia-sbagliata.c:14:10: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+       {  printf("Errore: numero di argomenti sbagliato dato che argc = %d\n", argc);
+          ^~~~~~
+copia-sbagliata.c:14:10: warning: incompatible implicit declaration of built-in function 'printf'
+copia-sbagliata.c:14:10: note: include '<stdio.h>' or provide a declaration of 'printf'
+copia-sbagliata.c:21:10: warning: incompatible implicit declaration of built-in function 'printf'
+  {       printf("Errore in apertura file per %s dato che infile = %d\n", argv[1], infile);
+          ^~~~~~
+copia-sbagliata.c:21:10: note: include '<stdio.h>' or provide a declaration of 'printf'
+copia-sbagliata.c:27:10: warning: incompatible implicit declaration of built-in function 'printf'
+  {       printf("Errore nella creazione file per %s dato che outfile = %d\n", argv[2], outfile);
+          ^~~~~~
+copia-sbagliata.c:27:10: note: include '<stdio.h>' or provide a declaration of 'printf'
+copia-sbagliata.c:35:11: warning: incompatible implicit declaration of built-in function 'printf'
+   {       printf("Errore nella scrittura del file per %s\n", argv[2]);
+           ^~~~~~
+copia-sbagliata.c:35:11: note: include '<stdio.h>' or provide a declaration of 'printf'
+copia-sbagliata.c:11:11: warning: unused variable 'buffer' [-Wunused-variable]
+      char buffer[BUFSIZ];    /* usato per i caratteri, letti dal file sorgente e scritti sul file destinazione */
+           ^~~~~~
+makefile:11: recipe for target 'copia-sbagliata' failed
+make: *** [copia-sbagliata] Error 1
+ATTENZIONE: IN QUESTO CASO NON CI SONO SOLO WARNING MA ANCHE ERRORI PERCHE' NON VIENE TROVATO IL
+VALORE PER BUFSIZ
+
+- OUTPUT PER COMMENTO DELLA SECONDA DIRETTIVA
+soELab@lica04:~/file/primaEsercitazione-C/sbagliato$ make
+gcc   -Wall  copia-sbagliata.c -o copia-sbagliata
+copia-sbagliata.c: In function 'main':
+copia-sbagliata.c:16:10: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+          exit(1);
+          ^~~~
+copia-sbagliata.c:16:10: warning: incompatible implicit declaration of built-in function 'exit'
+copia-sbagliata.c:16:10: note: include '<stdlib.h>' or provide a declaration of 'exit'
+copia-sbagliata.c:22:3: warning: incompatible implicit declaration of built-in function 'exit'
+   exit(2);
+   ^~~~
+copia-sbagliata.c:22:3: note: include '<stdlib.h>' or provide a declaration of 'exit'
+copia-sbagliata.c:28:3: warning: incompatible implicit declaration of built-in function 'exit'
+   exit(3);
+   ^~~~
+copia-sbagliata.c:28:3: note: include '<stdlib.h>' or provide a declaration of 'exit'
+copia-sbagliata.c:36:4: warning: incompatible implicit declaration of built-in function 'exit'
+    exit(4);
+    ^~~~
+copia-sbagliata.c:36:4: note: include '<stdlib.h>' or provide a declaration of 'exit'
+copia-sbagliata.c:40:2: warning: incompatible implicit declaration of built-in function 'exit'
+  exit(0);
+  ^~~~
+copia-sbagliata.c:40:2: note: include '<stdlib.h>' or provide a declaration of 'exit'
+ATTENZIONE: IN QUESTO CASO L'ESEGUIBILE VIENE PRODOTTO, MA LA PRESENZA DI WARNINGS SAREBBE PENaLIZZATA!
+
+- OUTPUT PER COMMENTO DELLA TERZA DIRETTIVA
+soELab@lica04:~/file/primaEsercitazione-C/sbagliato$ make
+gcc   -Wall  copia-sbagliata.c -o copia-sbagliata
+copia-sbagliata.c: In function 'main':
+copia-sbagliata.c:31:18: warning: implicit declaration of function 'read'; did you mean 'fread'? [-Wimplicit-function-declaration]
+  while ((nread = read(infile, buffer, BUFSIZ)) > 0 ) /* ciclo di lettura fino a che nread e' maggiore di 0 */
+                  ^~~~
+                  fread
+copia-sbagliata.c:33:7: warning: implicit declaration of function 'write'; did you mean 'fwrite'? [-Wimplicit-function-declaration]
+   if (write(outfile, buffer, nread) < nread) /* scriviamo sempre nread byte! */
+       ^~~~~
+       fwrite
+ATTENZIONE: IN QUESTO CASO L'ESEGUIBILE VIENE PRODOTTO, MA LA PRESENZA DI WARNINGS SAREBBE PENaLIZZATA!
+
+- OUTPUT PER COMMENTO DELLA QUARTA DIRETTIVA
+soELab@lica04:~/file/primaEsercitazione-C/sbagliato$ make
+gcc   -Wall  copia-sbagliata.c -o copia-sbagliata
+copia-sbagliata.c: In function 'main':
+copia-sbagliata.c:19:16: warning: implicit declaration of function 'open'; did you mean 'popen'? [-Wimplicit-function-declaration]
+  if ((infile = open(argv[1], O_RDONLY)) < 0)
+                ^~~~
+                popen
+copia-sbagliata.c:19:30: error: 'O_RDONLY' undeclared (first use in this function)
+  if ((infile = open(argv[1], O_RDONLY)) < 0)
+                              ^~~~~~~~
+copia-sbagliata.c:19:30: note: each undeclared identifier is reported only once for each function it appears in
+copia-sbagliata.c:25:17: warning: implicit declaration of function 'creat'; did you mean 'pread'? [-Wimplicit-function-declaration]
+  if ((outfile = creat(argv[2], PERM)) < 0 )
+                 ^~~~~
+                 pread
+makefile:11: recipe for target 'copia-sbagliata' failed
+make: *** [copia-sbagliata] Error 1
+ATTENZIONE: IN QUESTO CASO NON CI SONO SOLO WARNING MA ANCHE ERRORI PERCHE' NON VIENE TROVATO IL VALORE PER O_RDONLY
