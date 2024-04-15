@@ -9,7 +9,7 @@ int main ()
 
 	fork();			/* l'unico processo (il padre) crea un processo figlio */
 
-	printf("DUE\n");	/* che succede dopo la fork e, quindi. quanti processi eseguono questa printf? */
+	printf("DUE\n");	/* che succede dopo la fork e, quindi, quanti processi eseguono questa printf? */
 
 	exit(0);		/* quanti processi eseguono questa exit? */
 }
