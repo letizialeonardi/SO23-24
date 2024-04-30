@@ -9,8 +9,9 @@
 int main (int argc, char** argv)
 {
     int pid;        			/* per fork */
-    int pidFiglio, status, ritorno;         /* per wait padre */
+    int pidFiglio, status, ritorno;     /* per wait padre */
 
+    	/* controlliamo che si passino esattamente due parametri: stringa da cercare nome del file dove cercare! */ 
 	if (argc != 3)
 	{
        		printf("Errore nel numero di parametri che devono essere due (stringa da cercare e nome del file dove cercare): %d\n", argc);
