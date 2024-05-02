@@ -56,7 +56,7 @@ int main (int argc, char **argv)
                 		printf("Impossibile creare il file %s\n", FOut);
                         	exit(-1);
                 	}
-			/* chiudiamo il file creato dati che comunque il figlio non usa */
+			/* chiudiamo il file creato dato che comunque il figlio non lo usa */
 			close(fdw);
 
 			/* ogni figlio crea un nipote */
