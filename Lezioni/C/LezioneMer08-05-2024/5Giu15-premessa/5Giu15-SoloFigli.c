@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 		{
 			/* codice del figlio */
 			printf("DEBUG-Sono il processo figlio di indice %d e pid %d sto per creare il nipote che recuperera' l'ultima linea del file %s\n", j, getpid(), argv[j+1]);
-			/* in caso di errori nei figli o nei nipoti decidiamo di tornare dei numeri negativi (-1 che corrispondera' per il padre al valore 255, -2 che corrispondera' a 254, etc.) che non possono essere valori accettabili di ritorno dato che il comando tail, usato avendo implementato la ridirezione in ingresso, puo' tornare solo 0 (perche' avra' sempre successo) */
+			/*  in caso di errori nei figli o nei nipoti decidiamo di tornare dei numeri negativi (-1 che corrispondera' per il padre al valore 255, -2 che corrispondera' a 254, etc.) che non possono essere valori accettabili di ritorno per il comando tail */
 
 			/* Chiusura delle pipe non usate nella comunicazione con il padre */
 			for (k=0; k < M; k++)
